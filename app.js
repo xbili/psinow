@@ -51,7 +51,7 @@ function hasPSI(text) {
 }
 
 function psiTweet(text) {
-	if (hasPSI) {
+	if (hasPSI(text)) {
 		return true;
 	} else {
 		return false;
