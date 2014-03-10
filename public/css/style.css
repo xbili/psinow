@@ -1,0 +1,32 @@
+@font-face {
+	font-family: Sorts Mill Goudy;
+	src: url(http://fonts.googleapis.com/css?family=Sorts+Mill+Goudy);
+}
+
+@font-face {
+	font-family: Open Sans;
+	src: url(http://fonts.googleapis.com/css?family=Open+Sans);
+}
+
+header {
+	font-family: 'Sorts Mill Goudy', serif;
+	font-size: 100px;
+	text-align: center;
+}
+
+.app {
+	text-align: center;
+	font-size: 48px;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #87777a;
+}
+
+.app h1 {
+	font-size: 100px;
+}
+
+footer {
+	position: absolute;
+	top: 95%;
+	width: 100%;
+}
