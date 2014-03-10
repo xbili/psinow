@@ -17,6 +17,11 @@ app.use(app.router);
 app.set('views', __dirname + '/views');
 app.engine('html', ejs.renderFile);
 
+var port = Number(process.env.PORT || 5000);
+app.listen(port, function() {
+	console.log('Listening on ' + port + '... Happy hacking!');
+});
+
 app.get('/', function(req, res) {
 	var psi = false;
 	T.get('statuses/user_timeline', { screen_name: 'NEAsg', count: 5}, function(err, reply) {
@@ -27,10 +32,6 @@ app.get('/', function(req, res) {
 		}
 		res.render('index.ejs', { psi: psi });
 	});
-});
-
-app.listen(8080, function() {
-	console.log('Listening on port 8080... Happy hacking!')
 });
 
 // js functions for parsing @NEAsg's tweets
