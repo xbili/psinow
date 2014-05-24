@@ -20,10 +20,11 @@ app.get('/', function(req, res) {
 	var psi = false;
 	T.get('statuses/user_timeline', { screen_name: 'NEAsg', count: 5}, function(err, reply) {
 		for (var i = 0; i < 5; i++) {
-			if(psi == false) {
+			if(psi === false) {
 				psi = getPsiFromTweet(reply[i].text);
 			}
 		}
+		getTweets();
 		res.render('index.ejs', { psi: psi });
 	});
 });
@@ -69,9 +70,24 @@ function is24hrPsi(text) {
 
 function getPsiFromTweet(text) {
 	if (psiTweet(text) && !is24hrPsi(text)) {
-		var psi = text[14] + text[15];
-		return psi;
+    if(text[14] != NaN && text[15] != NaN) {
+		  var psi = text[22] + text[23];
+		  return psi;
+    } else if (text[14] != NaN) {
+      var psi = text[21] + text[22];
+    }
 	} else {
 		return false;
 	}
+}
+
+function getTweets() {
+	var tweets = { tweet: [], user: [] };
+	T.get('search/tweets', { q:'sghaze', count: 20 }, function(err, reply) {
+		console.log(reply.statuses);
+		// for (var i = 0; i < 20; i++) {
+		// 	tweets.tweet[i] = reply[0].text[i];
+		// 	tweets.user[i] = reply[0].
+		// }
+	});
 }
