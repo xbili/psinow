@@ -70,11 +70,12 @@ function is24hrPsi(text) {
 
 function getPsiFromTweet(text) {
 	if (psiTweet(text) && !is24hrPsi(text)) {
-    if(text[14] != NaN && text[15] != NaN) {
+    if(!isNaN(text[14]) && !isNaN(text[15])) {
 		  var psi = text[22] + text[23];
 		  return psi;
-    } else if (text[14] != NaN) {
+    } else if (!isNaN(text[14])) {
       var psi = text[21] + text[22];
+      return psi;
     }
 	} else {
 		return false;
