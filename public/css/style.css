@@ -11,7 +11,7 @@
 @media (min-width: 320px) {
   .background-image {
       position: fixed;
-      background-image: url('/img/background-320.jpg');
+      background-image: url('/img/background-320.JPG');
       background-size: auto;
       width: 100%;
       height: 100%;
