@@ -70,13 +70,22 @@ function is24hrPsi(text) {
 
 function getPsiFromTweet(text) {
 	if (psiTweet(text) && !is24hrPsi(text)) {
-    if(!isNaN(text[14]) && !isNaN(text[15])) {
-		  var psi = text[22] + text[23];
-		  return psi;
-    } else if (!isNaN(text[14])) {
-      var psi = text[21] + text[22];
-      return psi;
-    }
+		if(!isNaN(text[14]) && !isNaN(text[15])) {
+			if (isNaN(text[24])) {
+				var psi = text[22] + text[23];
+				return psi;
+			} else {
+				var psi = text[22] + text[23] + text[24];
+				return psi
+			}
+		} else if (!isNaN(text[14])) {
+			if (isNaN(text[23])) {
+				var psi = text[21] + text[22];
+				return psi;
+			} else {
+				var psi = text[21] + text[22] + text[23];
+			}
+		}
 	} else {
 		return false;
 	}
@@ -85,10 +94,10 @@ function getPsiFromTweet(text) {
 function getTweets() {
 	var tweets = { tweet: [], user: [] };
 	T.get('search/tweets', { q:'sghaze', count: 20 }, function(err, reply) {
-		console.log(reply.statuses);
-		// for (var i = 0; i < 20; i++) {
-		// 	tweets.tweet[i] = reply[0].text[i];
-		// 	tweets.user[i] = reply[0].
-		// }
+		console.log("tweets fetched.");
+//		for (var i = 0; i < 20; i++) {
+//			tweets.tweet[i] = reply[0].text[i];
+//		 	tweets.user[i] = reply[0].text[i];
+//		}
 	});
 }
