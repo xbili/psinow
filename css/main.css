@@ -1,0 +1,17 @@
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+.psi-now {
+  padding: 10px;
+}
+
+.psi-now span:active {
+  background-color: white;
+  color: #dd524d;
+}
+
+.psi-now span:focus {
+  background-color: white;
+  color: #dd524d;
+}
